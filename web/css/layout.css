@@ -1,0 +1,255 @@
+html {
+
+}
+
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+pre {
+    font-family: "Courier 10 Pitch", Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+/* H STYLE */
+.h-style-1 {
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: bold;
+    border: 1px solid #000;
+    padding: 5px;
+}
+
+.h-style-2 {
+    color: red;
+    text-transform: uppercase;
+}
+
+/* A STYLE */
+
+.a-style-1 {
+    color: #000;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.a-style-1:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.a-style-2 {
+    color: #000;
+    text-decoration: none;
+}
+
+.a-style-2:hover {
+    color: #767676;
+    text-decoration: none;
+}
+
+/* INDEX */
+
+.index {
+    font-family: cursive;
+    font-size: 150%;
+    padding-left: 5%;
+    padding-right: 5%;
+    line-height: 180%;
+}
+
+/* AFFICHAGE SKILLS */
+
+.affichage-skill li {
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
+
+.affichage-skill-list {
+    padding-left: 0;
+    list-style: none;
+    display: table;
+}
+
+.affichage-skill li>img {
+    width: auto;
+    height: 100px;;
+}
+
+.affichage-skill li>p {
+    font-weight: bold;
+}
+
+.affichage-skill li:hover {
+    background-color: rgba(168, 177, 186, 0.53);
+    color: #fff;
+    cursor: cell;
+}
+
+.skill-tag {
+    display: inline-block;
+    background-color: #767676;
+    color: #fff;
+    font-weight: bold;
+    margin-right: 5px;
+    padding: 5px;
+    width: auto;
+    text-transform: uppercase;
+}
+
+@media (max-width: 768px) {
+    .affichage-skill li {
+        width: 50%;
+        padding: 5px;
+    } 
+}
+
+/* AFFICHAGE FORMATIONS  */
+
+.affichage-education li {
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
+
+.affichage-education-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.affichage-education li img {
+    width: auto;
+    height: 100px;
+}
+
+.affichage-education li p {
+    font-weight: bold;
+}
+
+.affichage-education li:hover {
+    background-color: rgba(168, 177, 186, 0.53);
+    color: #fff;
+    cursor: cell;
+}
+
+@media (max-width: 768px) {
+    .affichage-education li {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+/* AFFICHAGE ARTICLES  */
+.affichage-article li {
+    float: left;
+    padding: 10px;
+    text-align: center;
+}
+
+.affichage-article-list {
+    padding-left: 0;
+    list-style: none;
+}
+
+.affichage-article li img {
+    width: auto;
+    height: 100px;
+}
+
+.affichage-article li p {
+    font-weight: bold;
+}
+
+.affichage-article li:hover {
+    background-color: rgba(168, 177, 186, 0.53);
+    color: #fff;
+    cursor: cell;
+}
+
+@media (max-width: 768px) {
+    .affichage-article li {
+        width: 100%;
+        padding: 5px;
+    }
+}
+
+/* AFFICHAGE DERNIERS ARTICLES */
+.last_articles {
+    text-align: center;
+    padding-bottom: 5%;
+    border-left: 3px solid transparent;
+}
+
+.last_articles:hover {
+    background-color: #3700008f;
+    color: #fff;
+    border-left: 3px solid #370000c7;
+}
+
+.last_articles p {
+    font-size: 150%;
+}
+
+.last_articles img {
+    width: 25%;
+    height: auto;
+}
+
+/* AFFICHAGE EXPERIENCE */
+.experience-show img, .skill-show img, .article-show img {
+    width: 10%;
+    height: auto;
+}
+
+/* AFFICHAGE ARTICLE */
+
+.article-show {
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.article-date {
+    font-weight: bold;
+    text-align: center;
+}
+
+.article-content {
+    background-color: #f0f0f0bd;
+    padding: 5%;
+}
+
+/* AFFICHAGE DES LIENS DANS PAGE CV */
+
+.cv-links {
+    float: left;
+    width: 24%;
+    margin-left: 1%;
+    text-align: center;
+}
+
+/* BOOTSTRAP */
+
+.navbar-default {
+    background-color: #370000;
+    box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.63);
+}
+
+.navbar-nav li:hover {
+    background-color: rgba(203, 176, 184, 0.13);
+}
+
+.navbar-default .navbar-nav>li>a {
+    color: #fff;
+}
+
+.progress {
+    width: 50%;
+}
