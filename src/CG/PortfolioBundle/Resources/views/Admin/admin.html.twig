@@ -1,0 +1,21 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration
+{% endblock %}
+
+{% block body %}
+    <h3 class="h-style-1">Menu d'administration</h3>
+        <ul>
+            <li><a href="{{ path('cg_portfolio_admin_users') }}">Gérer les utilisateurs</a></li>
+            <li><a href="{{ path('cg_portfolio_admin_messages') }}">Gérer mes messages</a></li>
+            <li><a href="{{ path('cg_portfolio_admin_skills') }}">Gérer mes skills</a></li>
+            <li><a href="{{ path('cg_portfolio_admin_experiences') }}">Gérer mes experiences</a></li>
+            <li><a href="{{ path('cg_portfolio_admin_educations') }}">Gérer mes formations</a></li>
+            <li><a href="{{ path('cg_portfolio_admin_articles') }}">Gérer mes articles</a></li>
+        </ul>
+{% endblock %}
+
+{% block last_articles %}
+    {{ parent() }}
+{% endblock %}

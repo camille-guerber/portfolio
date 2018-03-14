@@ -1,0 +1,39 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Expériences
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <a href="{{ path('cg_portfolio_admin_skill_add') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+    <h1>Skills</h1>
+    <table class="table table-hover table-bordered text-center">
+        <tr>
+            <th>Nom</th>
+            <th>A propos</th>
+            <th>Logo</th>
+            <th>Niveau</th>
+            <th>Logiciel</th>
+            <th colspan="3">Action</th>
+        <tr>
+        {% for skill in skills %}
+        <tr>     
+            <td>{{ skill.name }}</td>
+            <td>{{ skill.comment|raw|slice(0, 20) }}</td>
+            <td><img width="50px" height="auto" src="{{ skill.logoSrc }}"></img></td>
+            <td>{{ skill.level }}</td>
+            <td>
+                {% if skill.isSoftware %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </td>
+            <td><a href="{{ path('cg_portfolio_admin_skill_edit', {'id': skill.id}) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_skill_delete', {'id': skill.id}) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_skill_show', {'id': skill.id}) }}"><button type="button" class="btn btn-success">Visualiser</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

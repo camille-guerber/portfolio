@@ -1,0 +1,34 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Messages
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <h1>Mes messages</h1>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Nom</th>
+            <th>eMail</th>
+            <th>Date</th>
+            <th>Message</th>
+            <th colspan="3">Action</th>
+        <tr>
+        {% for message in messages %}
+        <tr>     
+            <td>{{ message.name }}</td>
+            <td>{{ message.email }}</td>
+            <td>{{ message.date|date('d M Y h:i:s') }}</td>
+            <td>{{ message.message }}</td>
+            <td><a href="{{ path('cg_portfolio_admin_message_delete', {'id': message.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_message_send', {'id': message.id }) }}"><button type="button" class="btn btn-primary">Répondre</button></a></td>
+            {% if message.seen == false %}
+                <td><a href="{{ path('cg_portfolio_admin_message_seen', {'id': message.id }) }}"><button type="button" class="btn btn-secondary">Marqué comme lu</button></a></td>
+            {% else %}
+                <td>Lu</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

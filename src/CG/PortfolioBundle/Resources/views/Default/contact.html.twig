@@ -1,0 +1,12 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Contact
+{% endblock %}
+
+{% block body %}
+    <h1>Par email</h1>
+    <p>Mon email : <strong>camille.guerber@gmail.com</strong></p>
+    <h1>Sinon via le formulaire</h1>
+    {{ form(form) }}
+{% endblock %}

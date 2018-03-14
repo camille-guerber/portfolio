@@ -1,0 +1,23 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - {{ skill.name }}
+{% endblock %}
+
+{% block body %}
+    <div class="skill-show">
+        <h3 class="h-style-1">{{ skill.name }}</h3>
+        <img src="{{ skill.logoSrc }}">
+        <h3 class="h-style-1">Niveau</h3>
+        <div class="progress">
+          <div class="progress-bar" role="progressbar" aria-valuenow="{{ skill.level }}"
+          aria-valuemin="0" aria-valuemax="100" style="width:{{ skill.level }}%">
+            {{ skill.level }}%
+          </div>
+        </div>
+        <h3 class="h-style-1">Contexte d'utilisation</h3>
+        <p>
+            {{ skill.comment|raw }}
+        </p>
+    </div>
+{% endblock %}

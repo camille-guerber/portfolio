@@ -1,0 +1,39 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Formations
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <a href="{{ path('cg_portfolio_admin_education_add') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+    <h1>Formations</h1>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Ecole</th>
+            <th>Logo</th>
+            <th>Pays</th>
+            <th>Ville</th>
+            <th>Intitulé</th>
+            <th>Niveau</th>
+            <th>Dates</th>
+            <th>Contenu</th>
+            <th colspan="3">Action</th>
+        <tr>
+        {% for education in educations %}
+        <tr>
+            <td>{{ education.school }}</td>
+            <td><img width="auto" height="50px" src="{{ education.logoSrc }}"></img></td>
+            <td>{{ education.country }}</td>
+            <td>{{ education.city }}</td>
+            <td>{{ education.title|slice(0,20)|nl2br~"..."  }}</td>
+            <td>{{ education.degree }}</td>
+            <td>{{ education.startDate|date('Y') ~"-"~ education.endDate|date('Y') }}</td>
+            <td>{{ education.content|slice(0,20)|nl2br~"..." }}</td>
+            <td><a href="{{ path('cg_portfolio_admin_education_edit', {'id': education.id }) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_education_delete', {'id': education.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_education_show', {'id': education.id }) }}"><button type="button" class="btn btn-success">Visualiser</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Articles
+{% endblock %}
+
+{% block body %}
+    <div class="affichage-article">
+        <h3 class="h-style-1">Mes articles</h3>
+        <ul class="affichage-article-list">
+        {% for article in articles %}                
+                {% if article.logo %}
+                    <a class="a-style-1" href="{{ path('cg_portfolio_article_show', {'slug': article.slug }) }}">
+                        <li>
+                            <p>Date de création : {{ article.dateCreation|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }} </p>
+                            <p>{{ article.titre }}</p>
+                            <img src="{{ article.logo }}"/>
+                        </li>
+                    </a>
+                {% endif %}
+        {% endfor %}
+        </ul>
+    </div>
+{% endblock %}
+
+

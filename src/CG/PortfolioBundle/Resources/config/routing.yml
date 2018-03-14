@@ -1,0 +1,171 @@
+#DEFAULT CONTROLLER#
+cg_portfolio_index:
+    path:    /
+    defaults:
+        _controller: CGPortfolioBundle:Default:index
+cg_portfolio_home:
+    path:     /home
+    defaults: 
+        _controller: CGPortfolioBundle:Default:index
+cg_portfolio_about:
+    path:    /about
+    defaults:
+        _controller: CGPortfolioBundle:Default:about
+cg_portfolio_education:
+    path:    /education
+    defaults:
+        _controller: CGPortfolioBundle:Default:education
+cg_portfolio_contact:
+    path:    /contact
+    defaults:
+        _controller: CGPortfolioBundle:Default:contact
+cg_portfolio_cv:
+    path:    /cv
+    defaults:
+        _controller: CGPortfolioBundle:Default:cv
+cg_portfolio_article:
+    path:    /article
+    defaults:
+        _controller: CGPortfolioBundle:Default:article
+cg_portfolio_experience_show:
+    path:    /experience/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Default:experienceShow
+cg_portfolio_skill_show:
+    path:    /skill/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Default:skillShow
+cg_portfolio_education_show:
+    path:    /education/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Default:educationShow
+cg_portfolio_article_show:
+    path:    /article/{slug}
+    defaults:
+        _controller: CGPortfolioBundle:Default:articleShow
+cg_portfolio_survey:
+    path:    /survey
+    defaults:
+        _controller: CGPortfolioBundle:Default:survey
+#ADMIN CONTROLLER#
+cg_portfolio_admin:
+    path:    /admin
+    defaults:
+        _controller: CGPortfolioBundle:Admin:index
+
+cg_portfolio_admin_login:
+    path:    /admin/login
+    defaults:
+        _controller: CGPortfolioBundle:Admin:login
+
+cg_portfolio_admin_logout:
+    path:    /admin/logout
+    defaults:
+        _controller: CGPortfolioBundle:Admin:logout
+# MESSAGES #
+cg_portfolio_admin_messages:
+    path:    /admin/message
+    defaults:
+        _controller: CGPortfolioBundle:Admin:messages
+
+cg_portfolio_admin_message_delete:
+    path:    /admin/message/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:deleteMessage
+
+cg_portfolio_admin_message_send:
+    path:    /admin/message/send/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:sendMessage
+cg_portfolio_admin_message_seen:
+    path:    /admin/message/seen/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:seenMessage
+# SKILLS #
+cg_portfolio_admin_skills:
+    path:    /admin/skills
+    defaults:
+        _controller: CGPortfolioBundle:Admin:skills
+cg_portfolio_admin_skill_edit:
+    path:    /admin/skill/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:skillEdit
+cg_portfolio_admin_skill_add:
+    path:    /admin/skill/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:skillAdd
+cg_portfolio_admin_skill_delete:
+    path:    /admin/skill/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:skillDelete
+# EXPERIENCES #
+cg_portfolio_admin_experiences:
+    path:    /admin/experiences
+    defaults:
+        _controller: CGPortfolioBundle:Admin:experiences
+cg_portfolio_admin_experience_add:
+    path:    /admin/experience/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:experienceAdd
+cg_portfolio_admin_experience_edit:
+    path:    /admin/experience/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:experienceEdit
+cg_portfolio_admin_experience_delete:
+    path:    /admin/experience/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:experienceDelete
+# FORMATIONS #
+cg_portfolio_admin_educations:
+    path:    /admin/educations
+    defaults:
+        _controller: CGPortfolioBundle:Admin:educations
+cg_portfolio_admin_education_add:
+    path:    /admin/education/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:educationAdd
+cg_portfolio_admin_education_edit:
+    path:    /admin/education/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:educationEdit
+cg_portfolio_admin_education_delete:
+    path:    /admin/education/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:educationDelete
+# USERS #
+cg_portfolio_admin_users:
+    path:    /admin/users
+    defaults:
+        _controller: CGPortfolioBundle:Admin:users
+cg_portfolio_admin_user_add:
+    path:    /admin/user/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:userAdd
+cg_portfolio_admin_user_edit:
+    path:    /admin/user/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:userEdit
+cg_portfolio_admin_user_delete:
+    path:    /admin/user/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:userDelete
+# ARTICLES #
+cg_portfolio_admin_articles:
+    path:    /admin/articles
+    defaults:
+        _controller: CGPortfolioBundle:Admin:articles
+cg_portfolio_admin_article_add:
+    path:    /admin/article/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:articleAdd
+cg_portfolio_admin_article_edit:
+    path:    /admin/article/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:articleEdit
+cg_portfolio_admin_article_delete:
+    path:    /admin/article/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:articleDelete
+
+        
+        

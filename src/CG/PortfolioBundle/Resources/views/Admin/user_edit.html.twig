@@ -1,0 +1,15 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - User - Edition
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6">
+            <a href="{{ path('cg_portfolio_admin_users') }}"><button type="button" class="btn btn-default">Retour</button></a>
+            <h1>Editer cet utilisateur</h1>
+            {{ form(form_user_edit) }}
+        </div>
+    </div>
+{% endblock %}

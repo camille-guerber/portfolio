@@ -1,0 +1,38 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Users
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <a href="{{ path('cg_portfolio_admin_user_add') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+    <h1>Utilisateurs</h1>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>ID</th>
+            <th>Nom</th>
+            <th>@mail</th>
+            <th>Mot de passe</th>
+            <th>Administrateur ?</th>
+            <th colspan="3">Action</th>
+        <tr>
+        {% for user in users %}
+        <tr>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.password }}</td>
+            <td>
+                {% if user.admin %}
+                    Oui
+                {% else %}
+                    Non
+                {% endif %}
+            </td>
+            <td><a href="{{ path('cg_portfolio_admin_user_edit', {'id': user.id }) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_user_delete', {'id': user.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

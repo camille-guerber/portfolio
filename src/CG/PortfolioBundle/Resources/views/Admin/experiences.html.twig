@@ -1,0 +1,42 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Expériences
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <a href="{{ path('cg_portfolio_admin_experience_add') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+    <h1>Expériences</h1>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Logo</th>
+            <th>Entreprise</th>
+            <th>Type de contrat</th>
+            <th>Date début</th>
+            <th>Date fin</th>
+            <th>Missions</th>
+            <th>Technologies utilisées</th>
+            <th colspan="3">Action</th>
+        <tr>
+        {% for experience in experiences %}
+        <tr>
+            <td><img width="auto" height="50px" src="{{ experience.companyLogo }}"></img></td>
+            <td>{{ experience.company }}</td>
+            <td>{{ experience.contractType }}</td>
+            <td>{{ experience.startDate|date('Y-m-d') }}</td>
+            <td>{{ experience.endDate|date('Y-m-d') }}</td>
+            <td>{{ experience.mission|slice(0,20)|nl2br }}...</td>
+            <td>
+                {% for skill in experience.skills %}
+                    <a href="#">{{ "#"~skill.name }}</a>
+                {% endfor %}
+            </td>
+
+            <td><a href="{{ path('cg_portfolio_admin_experience_edit', {'id': experience.id }) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_experience_delete', {'id': experience.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_experience_show', {'id': experience.id }) }}"><button type="button" class="btn btn-success">Voir</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

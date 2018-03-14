@@ -1,0 +1,82 @@
+{# app/Ressources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}Camille Guerber{% endblock %}</title>
+    {# CSS #}
+    {% block stylesheets %}
+        <link rel="icon" type="image/x-icon" href="https://findicons.com/files/icons/2804/plex/128/computer.png"/>
+        <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}"/>
+        <link rel="stylesheet" href="{{ asset('css/layout.css') }}"/>
+    {% endblock %}
+    {# JS #}
+    {% block javascripts %}
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    {% endblock %}
+</head>
+
+<body>
+    <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+            <a class="navbar-brand" href="{{ path('cg_portfolio_home') }}">
+                <img width="auto" height="100%" src="https://static-s.aa-cdn.net/img/gp/20600007267493/gWNBwo_ZCCrTm7Imm-TqDblztEFLLjBBD_UizuHZkBIV_kvgsykjpLJbqApNl5pVnw=w300?v=1"></img>
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="{{ path('cg_portfolio_home') }}">Accueil</a></li>
+            <li><a href="{{ path('cg_portfolio_about') }}">Compétences</a></li>
+            <li><a href="{{ path('cg_portfolio_education') }}">Formations</a></li>
+            <li><a href="{{ path('cg_portfolio_cv') }}">Liens</a></li>
+            <li><a href="{{ path('cg_portfolio_article') }}" >Articles</a></li>
+            <li><a href="{{ path('cg_portfolio_survey') }}" >Veille technologique</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            {% if app.session.get('user') %}
+                <li><a>Connecté en tant que : {{ app.session.get('user').name|upper }}</a></li>
+                <li><a href="{{ path('cg_portfolio_admin') }}">Admnistration</a></li>
+                <li><a href="{{ path('cg_portfolio_admin_logout') }}">Déconnexion</a></li>
+            {% endif %}
+            <li><a href="{{ path('cg_portfolio_contact') }}">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container-fluid">
+        {% block flashbag %}
+            {% for flashes in app.session.flashbag.all %}
+                {% for flash in flashes %}
+                    <div class="alert alert-dismissible alert-success">
+                      <button type="button" class="close" data-dismiss="alert">&times;</button>
+                      {{ flash }}
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        {% endblock %}
+        <div class="row">
+            <div class="col-md-9">
+                {% block body %}
+                {% endblock %}
+            </div>
+            <div class="col-md-3 hidden-sm hidden-xs">
+                {% block last_articles %}
+                    <h3 class="h-style-1">Derniers articles</h3>
+                    {{ render(controller('CGPortfolioBundle:Default:lastArticles')) }}
+                {% endblock %}
+            </div>
+        </div>          
+    </div>
+</body>
+</html>

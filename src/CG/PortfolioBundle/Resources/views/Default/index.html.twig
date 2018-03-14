@@ -1,0 +1,21 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Accueil
+{% endblock %}
+
+{% block body %}
+    <h3 class="h-style-1">Camille Guerber - Développeur</h3>
+    <p class="index"> Bienvenue sur mon site.<br>
+        Jeune étudiant en informatique, actuellement en en 3ème année de Licence au sein de l'Université d'Evry,
+        j'effectue cette dernière au sein du Ministère des armées en tant qu'administrateur de base de donnée.<br>
+        J'aime dans mon temps libre développer des applications web avec une préférence côté back-end.<br>
+        Vous trouverez ici toutes mes réalisations ainsi que mes compétences.<br>
+        Pour tout renseignement complémentaire n'hésitez pas à me contacter via le formulaire : 
+        <a href="{{ path('cg_portfolio_contact') }}">Ici</a>
+    </p>
+{% endblock %}
+
+{% block last_articles %}
+    {{ parent() }}
+{% endblock %}

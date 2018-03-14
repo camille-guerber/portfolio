@@ -1,0 +1,8 @@
+{% for article in articles %}
+    <a class="a-style-2" href="{{ path('cg_portfolio_article_show', {'slug': article.slug }) }}">
+        <div class="last_articles">
+            <p>{{ article.titre }}</p>
+            <img src="{{ article.logo }}">
+        </div>
+    </a>
+{% endfor %}

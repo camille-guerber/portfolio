@@ -1,0 +1,15 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Formation - Ajout
+{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <a href="{{ path('cg_portfolio_admin_users') }}"><button type="button" class="btn btn-default">Retour</button></a>
+            <h1>Ajouter un utilisateur</h1>
+            {{ form(form) }}
+        </div>
+    </div>
+{% endblock %}

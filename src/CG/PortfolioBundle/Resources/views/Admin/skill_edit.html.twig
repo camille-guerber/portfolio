@@ -1,0 +1,11 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Skill - Edition
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin_skills') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <h1>Editer ce skill</h1>
+    {{ form(form_skill_edit) }}
+{% endblock %}

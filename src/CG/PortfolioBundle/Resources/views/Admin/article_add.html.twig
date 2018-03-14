@@ -1,0 +1,11 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Article - Ajout
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin_articles') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <h1>Ajouter un article</h1>
+    {{ form(form) }}
+{% endblock %}

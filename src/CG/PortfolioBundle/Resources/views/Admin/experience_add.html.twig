@@ -1,0 +1,11 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Expérience - Ajout
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin_experiences') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <h3 class="h-style-1">Ajouter une expérience</h3>
+    {{ form(form) }}
+{% endblock %}
