@@ -55,13 +55,23 @@ pre {
     text-decoration: none;
 }
 
+/* HR STYLES */
+
+.hr-style-1 { 
+    height: 6px;
+    background: url(http://ibrahimjabbari.com/english/images/hr-11.png) repeat-x 0 0;
+    border: 0;
+} 
+
+.hr-style-1:before { 
+}
+
 /* INDEX */
 
 .index {
-    font-family: cursive;
     font-size: 150%;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
     line-height: 180%;
 }
 
@@ -189,7 +199,7 @@ pre {
 }
 
 .last_articles:hover {
-    background-color: #3700008f;
+    background-color: #085368b3;
     color: #fff;
     border-left: 3px solid #370000c7;
 }
@@ -211,9 +221,9 @@ pre {
 
 /* AFFICHAGE ARTICLE */
 
-.article-show {
-    padding-right: 5%;
-    padding-left: 5%;
+.article-container {
+    padding-right: 15%;
+    padding-left: 15%;
 }
 
 .article-date {
@@ -222,8 +232,8 @@ pre {
 }
 
 .article-content {
-    background-color: #f0f0f0bd;
-    padding: 5%;
+    background-color: #00000005;
+    padding: 1% 5%;
 }
 
 /* AFFICHAGE DES LIENS DANS PAGE CV */
@@ -238,7 +248,7 @@ pre {
 /* BOOTSTRAP */
 
 .navbar-default {
-    background-color: #370000;
+    background-color: #085368;
     box-shadow: 0px 1px 6px 0px rgba(0,0,0,0.63);
 }
 

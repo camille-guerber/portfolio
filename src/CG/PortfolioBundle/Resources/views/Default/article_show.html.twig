@@ -5,14 +5,12 @@
 {% endblock %}
 
 {% block body %}
-    <div class="article-show">
+    <div class="article-container">
         <h3 class="h-style-1">{{ article.titre }}</h3>
-        <img src="{{ article.logo }}">
-        <h3 class="h-style-1">Date Création</h3>
         <div class="article-date">
             {{ article.dateCreation|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}
         </div>
-        <h3 class="h-style-1">Article</h3>
+        <hr class="hr-style-1">
         <div class="article-content">
             {{ article.content|raw }}
         </div>
