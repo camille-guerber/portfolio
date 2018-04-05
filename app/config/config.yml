@@ -66,3 +66,36 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    
+# Sonata SEO
+sonata_seo:
+    encoding:    UTF-8
+    page:
+        title:    Camille Guerber Développeur
+        default:    sonata.seo.page.default
+        metas:
+            name:
+                keywords:    camille guerber, developpeur, developpeur web,  developpeur application, php, html, css, symfony, mvc, pdo, sql, javascript, js, jquerry, nodejs, angularjs, wordpress, bi
+                description:    Camille Guerber, developpeur informatique polyvalent
+                robots:    index, follow
+
+            property:
+                # Facebook application settings
+                #'fb:app_id':          XXXXXX
+                #'fb:admins':          admin1, admin2
+
+                # Open Graph information
+                'og:site_name':    Camille Guerber developpeur application
+                'og:description':    Camille Guerber, developpeur informatique polyvalent
+
+            http-equiv:
+                'Content-Type':    text/html; charset=utf-8
+                #'X-Ua-Compatible':     IE=EmulateIE7
+
+            charset:
+                UTF-8:     ''
+
+        head:
+            'xmlns':    http://www.w3.org/1999/xhtml
+            'xmlns:og':    http://opengraphprotocol.org/schema/
+            #'xmlns:fb':    "http://www.facebook.com/2008/fbml"

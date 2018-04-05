@@ -63,6 +63,11 @@ class Article
      */
     private $logo;
     
+    function getMetaDescription()
+    { 
+        return null;
+    }
+    
     public function slugify($text)
     {
         // replace non letter or digits by -

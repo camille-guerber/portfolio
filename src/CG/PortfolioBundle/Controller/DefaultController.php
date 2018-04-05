@@ -84,6 +84,10 @@ class DefaultController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Erreur, Expérience non trouvée.');
             return $this->redirectToRoute("cg_portfolio_about");
         } else {
+            $seo = $this->container->get('sonata.seo.page');
+            $seo->setTitle($experience->getCompany());
+            $seo-> addMeta('name', 'description', $experience->getCompany());
+            $seo-> addMeta('name', 'keywords', $experience->getCompany());     
             return $this->render("CGPortfolioBundle:Default:experience_show.html.twig", array('experience' => $experience));
         }
     }
@@ -95,6 +99,10 @@ class DefaultController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Erreur, Skill non trouvé.');
             return $this->redirectToRoute("cg_portfolio_about");
         } else {
+            $seo = $this->container->get('sonata.seo.page');
+            $seo->setTitle($skill->getName());
+            $seo-> addMeta('name', 'description', $skill->getName());
+            $seo-> addMeta('name', 'keywords', $skill->getName());            
             return $this->render("CGPortfolioBundle:Default:skill_show.html.twig", array('skill' => $skill));
         }
     }
@@ -105,6 +113,10 @@ class DefaultController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Erreur, Formation non trouvée.');
             return $this->redirectToRoute("cg_portfolio_about");
         } else {
+            $seo = $this->container->get('sonata.seo.page');
+            $seo->setTitle($education->getTitle());
+            $seo-> addMeta('name', 'description', $education->getTitle());
+            $seo-> addMeta('name', 'keywords', $education->getTitle());
             return $this->render("CGPortfolioBundle:Default:education_show.html.twig", array('education' => $education));
         }
     }
@@ -113,8 +125,12 @@ class DefaultController extends Controller
         $article = $this->getDoctrine()->getManager()->getRepository("CGPortfolioBundle:Article")->findOneBy(array("slug" => $slug));
         if(null === $article) {
             $request->getSession()->getFlashBag()->add('notice', 'Erreur, Article non trouvé.');
-            return $this->redirectToRoute("cg_portfolio_about");
+            return $this->redirectToRoute("cg_portfolio_article");
         } else {
+            $seo = $this->container->get('sonata.seo.page');
+            $seo->setTitle($article->getTitre());
+            $seo-> addMeta('name', 'description', $article->getTitre());
+            $seo-> addMeta('name', 'keywords', "article, cours, tuto,  tutoriel, article shell, cours shell, tuto shell, tutorie shell");
             return $this->render("CGPortfolioBundle:Default:article_show.html.twig", array('article' => $article));
         }
     } 

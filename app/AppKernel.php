@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new AppBundle\AppBundle(),
             new CG\PortfolioBundle\CGPortfolioBundle(),
             new \Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Sonata\SeoBundle\SonataSeoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

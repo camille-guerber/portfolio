@@ -1,11 +1,15 @@
 {# app/Ressources/views/layout.html.twig #}
 
 <!DOCTYPE html>
-<html>
+<html {{ sonata_seo_html_attributes() }}>
 <head>
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Camille Guerber{% endblock %}</title>
+    {% block sonata_seo_metadatas %}
+        {{ sonata_seo_metadatas() }}
+    {% endblock %}
+    {% block sonata_seo_title %}
+        {{ sonata_seo_title() }}
+    {% endblock %}
     {# CSS #}
     {% block stylesheets %}
         <link rel="icon" type="image/x-icon" href="https://findicons.com/files/icons/2804/plex/128/computer.png"/>

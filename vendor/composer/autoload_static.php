@@ -45,6 +45,7 @@ class ComposerStaticInita48c2d036e6a9d9e9b8b76ba2a69fdc8
             'Symfony\\Bridge\\PhpUnit\\' => 23,
             'Symfony\\Bridge\\Monolog\\' => 23,
             'Symfony\\Bridge\\Doctrine\\' => 24,
+            'Sonata\\SeoBundle\\' => 17,
             'Sensio\\Bundle\\GeneratorBundle\\' => 30,
             'Sensio\\Bundle\\FrameworkExtraBundle\\' => 35,
             'Sensio\\Bundle\\DistributionBundle\\' => 33,
@@ -62,6 +63,10 @@ class ComposerStaticInita48c2d036e6a9d9e9b8b76ba2a69fdc8
             'Ivory\\JsonBuilder\\' => 18,
             'Ivory\\CKEditorBundle\\' => 21,
             'Incenteev\\ParameterHandler\\' => 27,
+        ),
+        'E' => 
+        array (
+            'Exporter\\' => 9,
         ),
         'D' => 
         array (
@@ -155,6 +160,10 @@ class ComposerStaticInita48c2d036e6a9d9e9b8b76ba2a69fdc8
         array (
             0 => __DIR__ . '/..' . '/symfony/symfony/src/Symfony/Bridge/Doctrine',
         ),
+        'Sonata\\SeoBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/seo-bundle/src',
+        ),
         'Sensio\\Bundle\\GeneratorBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sensio/generator-bundle',
@@ -186,6 +195,10 @@ class ComposerStaticInita48c2d036e6a9d9e9b8b76ba2a69fdc8
         'Incenteev\\ParameterHandler\\' => 
         array (
             0 => __DIR__ . '/..' . '/incenteev/composer-parameter-handler',
+        ),
+        'Exporter\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/exporter/src',
         ),
         'Doctrine\\Instantiator\\' => 
         array (
