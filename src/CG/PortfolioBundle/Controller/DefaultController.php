@@ -127,10 +127,14 @@ class DefaultController extends Controller
             $request->getSession()->getFlashBag()->add('notice', 'Erreur, Article non trouvé.');
             return $this->redirectToRoute("cg_portfolio_article");
         } else {
+            $keywords = array();
+            foreach($article->getKeywords()  as  $k) {
+                $keywords[] = $k->getName();
+            }            
             $seo = $this->container->get('sonata.seo.page');
             $seo->setTitle($article->getTitre());
             $seo-> addMeta('name', 'description', $article->getTitre());
-            $seo-> addMeta('name', 'keywords', "article, cours, tuto,  tutoriel, article shell, cours shell, tuto shell, tutorie shell");
+            $seo-> addMeta('name', 'keywords', implode(",", $keywords));
             return $this->render("CGPortfolioBundle:Default:article_show.html.twig", array('article' => $article));
         }
     } 

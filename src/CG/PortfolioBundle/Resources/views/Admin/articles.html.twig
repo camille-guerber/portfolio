@@ -14,6 +14,7 @@
             <th>Titre</th>
             <th>Date création</th>
             <th>Date mise à jour</th>
+            <th>Mots clés</th>
             <th colspan="3">Action</th>
         <tr>
         {% for article in articles %}
@@ -22,6 +23,11 @@
             <td>{{ article.titre }}</td>
             <td>{{ article.dateCreation|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</td>
             <td>{{ article.dateMaj|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}</td>
+            <td>
+                {% for keyword in article.keywords %}
+                    #{{keyword.name}}
+                {% endfor %}
+            </td>
             <td><a href="{{ path('cg_portfolio_admin_article_edit', {'id': article.id }) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
             <td><a href="{{ path('cg_portfolio_admin_article_delete', {'id': article.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
             <td><a href="{{ path('cg_portfolio_article_show', {'slug': article.slug }) }}"><button type="button" class="btn btn-success">Voir</button></a></td>

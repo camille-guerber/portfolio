@@ -166,6 +166,23 @@ cg_portfolio_admin_article_delete:
     path:    /admin/article/delete/{id}
     defaults:
         _controller: CGPortfolioBundle:Admin:articleDelete
+# MOTS CLES #
+cg_portfolio_admin_keywords:
+    path:    /admin/keywords
+    defaults:
+        _controller: CGPortfolioBundle:Admin:keywords
+cg_portfolio_admin_keyword_add:
+    path:    /admin/keyword/add
+    defaults:
+        _controller: CGPortfolioBundle:Admin:keywordAdd
+cg_portfolio_admin_keyword_edit:
+    path:    /admin/keyword/edit/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:keywordEdit
+cg_portfolio_admin_keyword_delete:
+    path:    /admin/keyword/delete/{id}
+    defaults:
+        _controller: CGPortfolioBundle:Admin:keywordDelete
 
         
         

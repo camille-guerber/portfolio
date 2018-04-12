@@ -1,0 +1,11 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Mot clé - Edition
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin_keywords') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <h1>Editer ce mot clé</h1>
+    {{ form(form_keyword_edit) }}
+{% endblock %}

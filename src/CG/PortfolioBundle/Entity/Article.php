@@ -63,10 +63,10 @@ class Article
      */
     private $logo;
     
-    function getMetaDescription()
-    { 
-        return null;
-    }
+    /**
+     *  @ORM\ManyToMany(targetEntity="CG\PortfolioBundle\Entity\Keyword", cascade={"persist"})
+     */
+    private $keywords;
     
     public function slugify($text)
     {
@@ -248,5 +248,46 @@ class Article
     public function getContent()
     {
         return $this->content;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->keywords = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add keyword
+     *
+     * @param \CG\PortfolioBundle\Entity\Keyword $keyword
+     *
+     * @return Article
+     */
+    public function addKeyword(\CG\PortfolioBundle\Entity\Keyword $keyword)
+    {
+        $this->keywords[] = $keyword;
+
+        return $this;
+    }
+
+    /**
+     * Remove keyword
+     *
+     * @param \CG\PortfolioBundle\Entity\Keyword $keyword
+     */
+    public function removeKeyword(\CG\PortfolioBundle\Entity\Keyword $keyword)
+    {
+        $this->keywords->removeElement($keyword);
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
     }
 }

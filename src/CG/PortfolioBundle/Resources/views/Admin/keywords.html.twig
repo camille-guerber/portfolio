@@ -1,0 +1,26 @@
+{% extends "CGPortfolioBundle::layout.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Administration - Mots clés
+{% endblock %}
+
+{% block body %}
+    <a href="{{ path('cg_portfolio_admin') }}"><button type="button" class="btn btn-default">Retour</button></a>
+    <a href="{{ path('cg_portfolio_admin_keyword_add') }}"><button type="button" class="btn btn-primary">Ajouter</button></a>
+    <h1>Articles</h1>
+    <table class="table table-hover table-bordered">
+        <tr>
+            <th>Nom</th>
+            <th>Taille</th>
+            <th colspan="2">Action</th>
+        <tr>
+        {% for keyword in keywords %}
+        <tr>
+            <td>{{ keyword.name }}</td>
+            <td>{{ keyword.size }} lettre(s)</td>
+            <td><a href="{{ path('cg_portfolio_admin_keyword_edit', {'id': keyword.id }) }}"><button type="button" class="btn btn-primary">Editer</button></a></td>
+            <td><a href="{{ path('cg_portfolio_admin_keyword_delete', {'id': keyword.id }) }}"><button type="button" class="btn btn-danger">Supprimer</button></a></td>
+        </tr>
+        {% endfor %}
+    </table>
+{% endblock %}

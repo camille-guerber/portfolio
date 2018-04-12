@@ -23,6 +23,8 @@ use CG\PortfolioBundle\Form\EducationType;
 use CG\PortfolioBundle\Form\UserType;
 use CG\PortfolioBundle\Entity\Article;
 use CG\PortfolioBundle\Form\ArticleType;
+use CG\PortfolioBundle\Entity\Keyword;
+use CG\PortfolioBundle\Form\KeywordType;
 
 class AdminController extends Controller
 {
@@ -432,7 +434,8 @@ class AdminController extends Controller
         }
         return $this->redirectToRoute("cg_portfolio_admin_educations");
     }
-    
+
+    # Article #
     public function articlesAction(Request $request)
     {
         $articles = $this->getDoctrine()->getManager()->getRepository("CGPortfolioBundle:Article")->findAll();
@@ -502,5 +505,75 @@ class AdminController extends Controller
             $this->addFlash("notice", "L'article a bien été supprimé.");            
         }
         return $this->redirectToRoute("cg_portfolio_admin_articles");
+    }
+
+    # Keyword #
+    public function keywordsAction(Request $request)
+    {
+        $keywords = $this->getDoctrine()->getManager()->getRepository("CGPortfolioBundle:Keyword")->findAll();
+        
+        if(null === $keywords) {
+            $this->getSession()->getFlashBag()->add("warning", "Aucun mot clé  trouvé pour le moment, veuillez en créer.");
+            return $this->redirectToRoute("cg_portfolio_admin_keyword_add");
+        }
+        
+        return $this->render("CGPortfolioBundle:Admin:keywords.html.twig", array("keywords" => $keywords));
+    }
+    
+    public function keywordAddAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $keyword = new \CG\PortfolioBundle\Entity\Keyword();
+        $form = $this->createForm(KeywordType::class, $keyword);
+        if($request->isMethod("POST") && $form->handleRequest($request)->isValid()) {
+            $keyword->setSize(strlen($keyword->getName()));
+            $em->persist($keyword);
+            $em->flush();
+            $this->addFlash('notice', 'Mot clé correctement ajouté.');
+            return $this->redirectToRoute('cg_portfolio_admin_keywords');
+        } else {
+            $this->addFlash('warning', 'Veuillez remplir le formulaire correctement.');
+            return $this->render("CGPortfolioBundle:Admin:keyword_add.html.twig", array(
+              'form' => $form->createView()
+           ));       
+        }        
+    }
+    
+    public function keywordEditAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        $keyword = $em->getRepository("CGPortfolioBundle:Keyword")->find($id);
+        if(null === $keyword) {
+            $this->getSession->getFlashBag()->add('warning', 'Mot clé non trouvé.');
+            return $this->redirectToRoute("cg_portfolio_admin_keywords");
+        } else {
+            $form = $this->createForm(KeywordType::class, $keyword)
+                    ->add("submit", SubmitType::class, array("label" => "Modifier"));
+            
+            // Si méthode est POST et que le formulaire est bien renseigné
+            if($request->isMethod("POST") && $form->handleRequest($request)->isValid()) {
+                $keyword->setSize(strlen($keyword->getName()));
+                $em->flush();
+                $this->addFlash('notice', 'Mot clé bien éditée !');
+                return $this->redirectToRoute("cg_portfolio_admin_keywords");
+            } else {
+                return $this->render("CGPortfolioBundle:Admin:keyword_edit.html.twig", array('form_keyword_edit' => $form->createView()));
+            }
+        }        
+    }
+    
+    public function keywordDeleteAction(Request $request, $id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $keyword = $em->getRepository("CGPortfolioBundle:Keyword")->find($id);
+        if(null === $keyword) {
+            $this->addFlash("warning", "Erreur, le mot clé n'existe pas.");
+        } else {
+            $em->remove($keyword);
+            $em->flush();
+            $this->addFlash("notice", "Le mot clé a bien été supprimé.");            
+        }
+        return $this->redirectToRoute("cg_portfolio_admin_keywords");
     }
 }
