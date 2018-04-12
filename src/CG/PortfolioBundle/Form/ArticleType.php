@@ -24,6 +24,9 @@ class ArticleType extends AbstractType
     {
         $builder
             ->add('titre', TextType::class, array("label" => "Titre de l'article"))
+            ->add('seoTitle', TextType::class, array("label" => "Titre SEO"))
+            ->add('description', TextType::class, array("label" => "Description"))
+             ->add('ogDescription', TextType::class, array("label" => "OG Description"))
             ->add('logo', TextType::class, array("label" => "URL logo de l'article"))
             ->add('content', CKEditorType::class, array(
                 "label" => "Et l'article !",

@@ -41,13 +41,41 @@ class Article
      * @ORM\Column(name="titre", type="string", length=255)
      */
     private $titre;
-
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="seotitle", type="string", length=255)
+     */
+    private $seoTitle;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="ogtitle", type="string", length=255)
+     */
+    private $ogTitle;
+    
     /**
      * @var string
      *
      * @ORM\Column(name="slug", type="string", length=255)
      */
     private $slug;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="description", type="string", length=255)
+     */
+    private $description;
+    
+    /**
+     * @var string
+     * 
+     * @ORM\Column(name="ogdescription", type="string", length=255)
+     */
+    private $ogDescription;
     
     /**
      * @var string
@@ -289,5 +317,101 @@ class Article
     public function getKeywords()
     {
         return $this->keywords;
+    }
+
+    /**
+     * Set seoTitle
+     *
+     * @param string $seoTitle
+     *
+     * @return Article
+     */
+    public function setSeoTitle($seoTitle)
+    {
+        $this->seoTitle = $seoTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get seoTitle
+     *
+     * @return string
+     */
+    public function getSeoTitle()
+    {
+        return $this->seoTitle;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     *
+     * @return Article
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * Set ogDescription
+     *
+     * @param string $ogDescription
+     *
+     * @return Article
+     */
+    public function setOgDescription($ogDescription)
+    {
+        $this->ogDescription = $ogDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get ogDescription
+     *
+     * @return string
+     */
+    public function getOgDescription()
+    {
+        return $this->ogDescription;
+    }
+
+    /**
+     * Set ogTitle
+     *
+     * @param string $ogTitle
+     *
+     * @return Article
+     */
+    public function setOgTitle($ogTitle)
+    {
+        $this->ogTitle = $ogTitle;
+
+        return $this;
+    }
+
+    /**
+     * Get ogTitle
+     *
+     * @return string
+     */
+    public function getOgTitle()
+    {
+        return $this->ogTitle;
     }
 }

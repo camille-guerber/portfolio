@@ -130,11 +130,18 @@ class DefaultController extends Controller
             $keywords = array();
             foreach($article->getKeywords()  as  $k) {
                 $keywords[] = $k->getName();
-            }            
+            }
             $seo = $this->container->get('sonata.seo.page');
-            $seo->setTitle($article->getTitre());
-            $seo-> addMeta('name', 'description', $article->getTitre());
-            $seo-> addMeta('name', 'keywords', implode(",", $keywords));
+            # Title #
+            $seo->setTitle($article->getSeoTitle());
+            # OG Title #
+            $seo->addMeta('property', 'og:title', $article->getOgDescription());
+            # Description #
+            $seo-> addMeta('name', 'description', $article->getDescription());
+            # OG Description #
+            $seo->addMeta('property', 'og:description', $article->getOgDescription());
+            # Keywords #
+            $seo-> addMeta('name', 'keywords', implode(",", $keywords)); 
             return $this->render("CGPortfolioBundle:Default:article_show.html.twig", array('article' => $article));
         }
     } 

@@ -3,10 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Form/ArticleType.php</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Resources/views/Admin/keyword_add.html.twig</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Resources/views/Admin/keyword_edit.html.twig</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Resources/views/Admin/admin.html.twig</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Form/KeywordType.php</file>
             <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Entity/Article.php</file>
-            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Entity/Keyword.php</file>
-            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Form/ExperienceType.php</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Controller/AdminController.php</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Resources/views/Admin/articles.html.twig</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Resources/views/Admin/keywords.html.twig</file>
+            <file>file:/D:/wamp64/www/my_projects/portfolio-git/src/CG/PortfolioBundle/Controller/DefaultController.php</file>
         </group>
     </open-files>
 </project-private>
