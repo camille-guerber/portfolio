@@ -36,31 +36,20 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
      */
     private $defaultTokenManager;
 
-    /**
-     * @var bool
-     */
     private $defaultEnabled;
-
-    /**
-     * @var string
-     */
     private $defaultFieldName;
-
-    /**
-     * @var TranslatorInterface
-     */
     private $translator;
-
-    /**
-     * @var null|string
-     */
     private $translationDomain;
-
-    /**
-     * @var ServerParams
-     */
     private $serverParams;
 
+    /**
+     * @param CsrfTokenManagerInterface|CsrfProviderInterface $defaultTokenManager
+     * @param bool                                            $defaultEnabled
+     * @param string                                          $defaultFieldName
+     * @param TranslatorInterface                             $translator
+     * @param null|string                                     $translationDomain
+     * @param ServerParams                                    $serverParams
+     */
     public function __construct($defaultTokenManager, $defaultEnabled = true, $defaultFieldName = '_token', TranslatorInterface $translator = null, $translationDomain = null, ServerParams $serverParams = null)
     {
         if ($defaultTokenManager instanceof CsrfProviderInterface) {
@@ -132,7 +121,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
         // BC clause for the "intention" option
         $csrfTokenId = function (Options $options) {
             if (null !== $options['intention']) {
-                @trigger_error('The form option "intention" is deprecated since version 2.8 and will be removed in 3.0. Use "csrf_token_id" instead.', E_USER_DEPRECATED);
+                @trigger_error('The form option "intention" is deprecated since Symfony 2.8 and will be removed in 3.0. Use "csrf_token_id" instead.', E_USER_DEPRECATED);
             }
 
             return $options['intention'];
@@ -152,7 +141,7 @@ class FormTypeCsrfExtension extends AbstractTypeExtension
         $defaultTokenManager = $this->defaultTokenManager;
         $csrfProviderNormalizer = function (Options $options, $csrfProvider) use ($defaultTokenManager) {
             if (null !== $csrfProvider) {
-                @trigger_error('The form option "csrf_provider" is deprecated since version 2.8 and will be removed in 3.0. Use "csrf_token_manager" instead.', E_USER_DEPRECATED);
+                @trigger_error('The form option "csrf_provider" is deprecated since Symfony 2.8 and will be removed in 3.0. Use "csrf_token_manager" instead.', E_USER_DEPRECATED);
 
                 return $csrfProvider;
             }

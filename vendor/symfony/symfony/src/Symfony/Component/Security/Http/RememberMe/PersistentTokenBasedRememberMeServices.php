@@ -46,17 +46,12 @@ class PersistentTokenBasedRememberMeServices extends AbstractRememberMeServices
     public function __construct(array $userProviders, $secret, $providerKey, array $options = array(), LoggerInterface $logger = null, SecureRandomInterface $secureRandom = null)
     {
         if (null !== $secureRandom) {
-            @trigger_error('The $secureRandom parameter in '.__METHOD__.' is deprecated since version 2.8 and will be removed in 3.0.', E_USER_DEPRECATED);
+            @trigger_error('The $secureRandom parameter in '.__METHOD__.' is deprecated since Symfony 2.8 and will be removed in 3.0.', E_USER_DEPRECATED);
         }
 
         parent::__construct($userProviders, $secret, $providerKey, $options, $logger);
     }
 
-    /**
-     * Sets the token provider.
-     *
-     * @param TokenProviderInterface $tokenProvider
-     */
     public function setTokenProvider(TokenProviderInterface $tokenProvider)
     {
         $this->tokenProvider = $tokenProvider;

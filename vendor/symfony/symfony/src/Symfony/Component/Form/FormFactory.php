@@ -16,14 +16,7 @@ use Symfony\Component\Form\Util\StringUtil;
 
 class FormFactory implements FormFactoryInterface
 {
-    /**
-     * @var FormRegistryInterface
-     */
     private $registry;
-
-    /**
-     * @var ResolvedFormTypeFactoryInterface
-     */
     private $resolvedTypeFactory;
 
     public function __construct(FormRegistryInterface $registry, ResolvedFormTypeFactoryInterface $resolvedTypeFactory)
@@ -101,12 +94,12 @@ class FormFactory implements FormFactoryInterface
         }
 
         if ($type instanceof FormTypeInterface) {
-            @trigger_error(sprintf('Passing type instances to FormBuilder::add(), Form::add() or the FormFactory is deprecated since version 2.8 and will not be supported in 3.0. Use the fully-qualified type class name instead (%s).', get_class($type)), E_USER_DEPRECATED);
+            @trigger_error(sprintf('Passing type instances to FormBuilder::add(), Form::add() or the FormFactory is deprecated since Symfony 2.8 and will not be supported in 3.0. Use the fully-qualified type class name instead (%s).', get_class($type)), E_USER_DEPRECATED);
             $type = $this->resolveType($type);
         } elseif (is_string($type)) {
             $type = $this->registry->getType($type);
         } elseif ($type instanceof ResolvedFormTypeInterface) {
-            @trigger_error(sprintf('Passing type instances to FormBuilder::add(), Form::add() or the FormFactory is deprecated since version 2.8 and will not be supported in 3.0. Use the fully-qualified type class name instead (%s).', get_class($type->getInnerType())), E_USER_DEPRECATED);
+            @trigger_error(sprintf('Passing type instances to FormBuilder::add(), Form::add() or the FormFactory is deprecated since Symfony 2.8 and will not be supported in 3.0. Use the fully-qualified type class name instead (%s).', get_class($type->getInnerType())), E_USER_DEPRECATED);
         } else {
             throw new UnexpectedTypeException($type, 'string, Symfony\Component\Form\ResolvedFormTypeInterface or Symfony\Component\Form\FormTypeInterface');
         }
@@ -168,8 +161,6 @@ class FormFactory implements FormFactoryInterface
     /**
      * Wraps a type into a ResolvedFormTypeInterface implementation and connects
      * it with its parent type.
-     *
-     * @param FormTypeInterface $type The type to resolve
      *
      * @return ResolvedFormTypeInterface The resolved type
      */

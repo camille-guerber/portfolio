@@ -19,6 +19,16 @@ use Symfony\Component\Finder\Finder;
  */
 class BsdFinderTest extends FinderTest
 {
+    public function testSymlinksNotResolved()
+    {
+        $this->markTestSkipped('Symlinks are always resolved using the BsdFinderAdapter.');
+    }
+
+    public function testBackPathNotNormalized()
+    {
+        $this->markTestSkipped('Paths are always normalized using the BsdFinderAdapter.');
+    }
+
     protected function buildFinder()
     {
         $adapter = new BsdFindAdapter();

@@ -429,7 +429,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
                 /**
                  * Runs the PHP function htmlspecialchars on the value passed.
                  *
-                 * @param string $value the value to escape
+                 * @param string $value The value to escape
                  *
                  * @return string the escaped value
                  */
@@ -444,7 +444,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
                  * A function that escape all non-alphanumeric characters
                  * into their \xHH or \uHHHH representations.
                  *
-                 * @param string $value the value to escape
+                 * @param string $value The value to escape
                  *
                  * @return string the escaped value
                  */
@@ -495,7 +495,7 @@ class PhpEngine implements EngineInterface, \ArrayAccess
      */
     public function convertEncoding($string, $to, $from)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.8 and will be removed in 3.0. Use iconv() instead.', E_USER_DEPRECATED);
+        @trigger_error('The '.__METHOD__.' method is deprecated since Symfony 2.8 and will be removed in 3.0. Use iconv() instead.', E_USER_DEPRECATED);
 
         return iconv($from, $to, $string);
     }

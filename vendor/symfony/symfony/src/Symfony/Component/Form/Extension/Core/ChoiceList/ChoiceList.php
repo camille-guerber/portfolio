@@ -11,7 +11,7 @@
 
 namespace Symfony\Component\Form\Extension\Core\ChoiceList;
 
-@trigger_error('The '.__NAMESPACE__.'\ChoiceList class is deprecated since version 2.7 and will be removed in 3.0. Use Symfony\Component\Form\ChoiceList\ArrayChoiceList instead.', E_USER_DEPRECATED);
+@trigger_error('The '.__NAMESPACE__.'\ChoiceList class is deprecated since Symfony 2.7 and will be removed in 3.0. Use Symfony\Component\Form\ChoiceList\ArrayChoiceList instead.', E_USER_DEPRECATED);
 
 use Symfony\Component\Form\FormConfigBuilder;
 use Symfony\Component\Form\Exception\UnexpectedTypeException;
@@ -43,31 +43,23 @@ class ChoiceList implements ChoiceListInterface
 {
     /**
      * The choices with their indices as keys.
-     *
-     * @var array
      */
     protected $choices = array();
 
     /**
      * The choice values with the indices of the matching choices as keys.
-     *
-     * @var array
      */
     protected $values = array();
 
     /**
      * The preferred view objects as hierarchy containing also the choice groups
      * with the indices of the matching choices as bottom-level keys.
-     *
-     * @var array
      */
     private $preferredViews = array();
 
     /**
      * The non-preferred view objects as hierarchy containing also the choice
      * groups with the indices of the matching choices as bottom-level keys.
-     *
-     * @var array
      */
     private $remainingViews = array();
 
@@ -82,7 +74,7 @@ class ChoiceList implements ChoiceListInterface
      *                                             level of the hierarchy may also be a \Traversable.
      * @param array              $labels           The array of labels. The structure of this array
      *                                             should match the structure of $choices.
-     * @param array              $preferredChoices a flat array of choices that should be
+     * @param array              $preferredChoices A flat array of choices that should be
      *                                             presented to the user with priority
      *
      * @throws UnexpectedTypeException if the choices are not an array or \Traversable
@@ -208,7 +200,7 @@ class ChoiceList implements ChoiceListInterface
      */
     public function getIndicesForChoices(array $choices)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.4 and will be removed in 3.0.', E_USER_DEPRECATED);
+        @trigger_error('The '.__METHOD__.' method is deprecated since Symfony 2.4 and will be removed in 3.0.', E_USER_DEPRECATED);
 
         $choices = $this->fixChoices($choices);
         $indices = array();
@@ -236,7 +228,7 @@ class ChoiceList implements ChoiceListInterface
      */
     public function getIndicesForValues(array $values)
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.4 and will be removed in 3.0.', E_USER_DEPRECATED);
+        @trigger_error('The '.__METHOD__.' method is deprecated since Symfony 2.4 and will be removed in 3.0.', E_USER_DEPRECATED);
 
         $values = $this->fixValues($values);
         $indices = array();
@@ -260,10 +252,8 @@ class ChoiceList implements ChoiceListInterface
     /**
      * Recursively adds the given choices to the list.
      *
-     * @param array              $bucketForPreferred the bucket where to store the preferred
-     *                                               view objects
-     * @param array              $bucketForRemaining the bucket where to store the
-     *                                               non-preferred view objects
+     * @param array              $bucketForPreferred The bucket where to store the preferred view objects
+     * @param array              $bucketForRemaining The bucket where to store the non-preferred view objects
      * @param array|\Traversable $choices            The list of choices
      * @param array              $labels             The labels corresponding to the choices
      * @param array              $preferredChoices   The preferred choices
@@ -307,10 +297,8 @@ class ChoiceList implements ChoiceListInterface
      * Recursively adds a choice group.
      *
      * @param string $group              The name of the group
-     * @param array  $bucketForPreferred the bucket where to store the preferred
-     *                                   view objects
-     * @param array  $bucketForRemaining the bucket where to store the
-     *                                   non-preferred view objects
+     * @param array  $bucketForPreferred The bucket where to store the preferred view objects
+     * @param array  $bucketForRemaining The bucket where to store the non-preferred view objects
      * @param array  $choices            The list of choices in the group
      * @param array  $labels             The labels corresponding to the choices in the group
      * @param array  $preferredChoices   The preferred choices
@@ -344,10 +332,8 @@ class ChoiceList implements ChoiceListInterface
     /**
      * Adds a new choice.
      *
-     * @param array  $bucketForPreferred the bucket where to store the preferred
-     *                                   view objects
-     * @param array  $bucketForRemaining the bucket where to store the
-     *                                   non-preferred view objects
+     * @param array  $bucketForPreferred The bucket where to store the preferred view objects
+     * @param array  $bucketForRemaining The bucket where to store the non-preferred view objects
      * @param mixed  $choice             The choice to add
      * @param string $label              The label for the choice
      * @param array  $preferredChoices   The preferred choices

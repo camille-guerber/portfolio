@@ -1600,7 +1600,7 @@ abstract class AbstractBootstrap3LayoutTest extends AbstractLayoutTest
 
         $this->assertWidgetMatchesXpath($form->createView(), array('attr' => array('class' => 'my&class')),
 '/input
-    [@type="datetime"]
+    [@type="datetime-local"]
     [@name="name"]
     [@class="my&class form-control"]
     [@value="2011-02-03T04:05:06Z"]
@@ -1621,7 +1621,7 @@ abstract class AbstractBootstrap3LayoutTest extends AbstractLayoutTest
 
         $this->assertWidgetMatchesXpath($form->createView(), array('attr' => array('class' => 'my&class')),
 '/input
-    [@type="datetime"]
+    [@type="datetime-local"]
     [@name="name"]
     [@class="my&class form-control"]
     [@value="2011-02-03T04:05:06Z"]
@@ -1973,6 +1973,25 @@ abstract class AbstractBootstrap3LayoutTest extends AbstractLayoutTest
             [@class="my&class form-control"]
             [@value="1234.56"]
     ]
+'
+        );
+    }
+
+    public function testMoneyWithoutCurrency()
+    {
+        $form = $this->factory->createNamed('name', 'Symfony\Component\Form\Extension\Core\Type\MoneyType', 1234.56, array(
+            'currency' => false,
+        ));
+
+        $this->assertWidgetMatchesXpath($form->createView(), array('id' => 'my&id', 'attr' => array('class' => 'my&class')),
+'/input
+    [@id="my&id"]
+    [@type="text"]
+    [@name="name"]
+    [@class="my&class form-control"]
+    [@value="1234.56"]
+    [not(preceding-sibling::*)]
+    [not(following-sibling::*)]
 '
         );
     }

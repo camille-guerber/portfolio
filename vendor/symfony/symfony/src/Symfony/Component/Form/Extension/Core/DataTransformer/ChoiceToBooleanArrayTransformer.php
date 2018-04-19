@@ -11,7 +11,7 @@
 
 namespace Symfony\Component\Form\Extension\Core\DataTransformer;
 
-@trigger_error('The class '.__NAMESPACE__.'\ChoiceToBooleanArrayTransformer is deprecated since version 2.7 and will be removed in 3.0. Use Symfony\Component\Form\Extension\Core\DataMapper\RadioListMapper instead.', E_USER_DEPRECATED);
+@trigger_error('The class '.__NAMESPACE__.'\ChoiceToBooleanArrayTransformer is deprecated since Symfony 2.7 and will be removed in 3.0. Use Symfony\Component\Form\Extension\Core\DataMapper\RadioListMapper instead.', E_USER_DEPRECATED);
 
 use Symfony\Component\Form\ChoiceList\ChoiceListInterface;
 use Symfony\Component\Form\DataTransformerInterface;
@@ -47,8 +47,7 @@ class ChoiceToBooleanArrayTransformer implements DataTransformerInterface
      * depending on whether a given option is selected. If this field is rendered
      * as select tag, the value is not modified.
      *
-     * @param mixed $choice an array if "multiple" is set to true, a scalar
-     *                      value otherwise
+     * @param mixed $choice An array if "multiple" is set to true, a scalar value otherwise
      *
      * @return mixed An array
      *
@@ -87,10 +86,8 @@ class ChoiceToBooleanArrayTransformer implements DataTransformerInterface
      *
      * @return mixed A scalar value
      *
-     * @throws TransformationFailedException if the given value is not an array,
-     *                                       if the recuperation of the choices
-     *                                       fails or if some choice can't be
-     *                                       found
+     * @throws TransformationFailedException if the given value is not an array, if the recuperation
+     *                                       of the choices fails, or if some choice can't be found
      */
     public function reverseTransform($values)
     {

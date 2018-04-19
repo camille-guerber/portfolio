@@ -60,7 +60,7 @@ class LogoutListener implements ListenerInterface
                 throw new \InvalidArgumentException(sprintf('You should only define an option for one of "intention" or "csrf_token_id" for the "%s". Use the "csrf_token_id" as it replaces "intention".', __CLASS__));
             }
 
-            @trigger_error('The "intention" option for the '.__CLASS__.' is deprecated since version 2.8 and will be removed in 3.0. Use the "csrf_token_id" option instead.', E_USER_DEPRECATED);
+            @trigger_error('The "intention" option for the '.__CLASS__.' is deprecated since Symfony 2.8 and will be removed in 3.0. Use the "csrf_token_id" option instead.', E_USER_DEPRECATED);
 
             $options['csrf_token_id'] = $options['intention'];
         }
@@ -77,11 +77,6 @@ class LogoutListener implements ListenerInterface
         $this->handlers = array();
     }
 
-    /**
-     * Adds a logout handler.
-     *
-     * @param LogoutHandlerInterface $handler
-     */
     public function addHandler(LogoutHandlerInterface $handler)
     {
         $this->handlers[] = $handler;
@@ -92,8 +87,6 @@ class LogoutListener implements ListenerInterface
      *
      * If a CsrfTokenManagerInterface instance is available, it will be used to
      * validate the request.
-     *
-     * @param GetResponseEvent $event A GetResponseEvent instance
      *
      * @throws LogoutException   if the CSRF token is invalid
      * @throws \RuntimeException if the LogoutSuccessHandlerInterface instance does not return a response
@@ -137,8 +130,6 @@ class LogoutListener implements ListenerInterface
      * The default implementation only processed requests to a specific path,
      * but a subclass could change this to logout requests where
      * certain parameters is present.
-     *
-     * @param Request $request
      *
      * @return bool
      */

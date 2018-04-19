@@ -23,14 +23,8 @@ use Symfony\Component\Form\FormView;
  */
 class FormHelper extends Helper
 {
-    /**
-     * @var FormRendererInterface
-     */
     private $renderer;
 
-    /**
-     * @param FormRendererInterface $renderer
-     */
     public function __construct(FormRendererInterface $renderer)
     {
         $this->renderer = $renderer;
@@ -136,7 +130,7 @@ class FormHelper extends Helper
      */
     public function enctype(FormView $view)
     {
-        @trigger_error('The form helper $view[\'form\']->enctype() is deprecated since version 2.3 and will be removed in 3.0. Use $view[\'form\']->start() instead.', E_USER_DEPRECATED);
+        @trigger_error('The form helper $view[\'form\']->enctype() is deprecated since Symfony 2.3 and will be removed in 3.0. Use $view[\'form\']->start() instead.', E_USER_DEPRECATED);
 
         return $this->renderer->searchAndRenderBlock($view, 'enctype');
     }
@@ -197,8 +191,6 @@ class FormHelper extends Helper
 
     /**
      * Renders the errors of the given view.
-     *
-     * @param FormView $view The view to render the errors for
      *
      * @return string The HTML markup
      */
@@ -267,5 +259,21 @@ class FormHelper extends Helper
     public function humanize($text)
     {
         return $this->renderer->humanize($text);
+    }
+
+    /**
+     * @internal
+     */
+    public function formEncodeCurrency($text, $widget = '')
+    {
+        if ('UTF-8' === $charset = $this->getCharset()) {
+            $text = htmlspecialchars($text, ENT_QUOTES | (\defined('ENT_SUBSTITUTE') ? ENT_SUBSTITUTE : 0), 'UTF-8');
+        } else {
+            $text = htmlentities($text, ENT_QUOTES | (\defined('ENT_SUBSTITUTE') ? ENT_SUBSTITUTE : 0), 'UTF-8');
+            $text = iconv('UTF-8', $charset, $text);
+            $widget = iconv('UTF-8', $charset, $widget);
+        }
+
+        return str_replace('{{ widget }}', $widget, $text);
     }
 }

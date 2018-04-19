@@ -14,6 +14,8 @@ namespace Symfony\Component\Intl\Tests\DateFormatter;
 use PHPUnit\Framework\TestCase;
 use Symfony\Component\Intl\DateFormatter\IntlDateFormatter;
 use Symfony\Component\Intl\Globals\IntlGlobals;
+use Symfony\Component\Intl\Intl;
+use Symfony\Component\Intl\Util\IcuVersion;
 
 /**
  * Test case for IntlDateFormatter implementations.
@@ -229,10 +231,6 @@ abstract class AbstractIntlDateFormatterTest extends TestCase
             array('s', 3601, '1'),
             array('s', 3630, '30'),
             array('s', 43200, '0'), // 12 hours
-
-            // general
-            array("yyyy.MM.dd 'at' HH:mm:ss zzz", 0, '1970.01.01 at 00:00:00 UTC'),
-            array('K:mm a, z', 0, '0:00 AM, UTC'),
         );
 
         $dateTime = new \DateTime('@0');
@@ -243,8 +241,13 @@ abstract class AbstractIntlDateFormatterTest extends TestCase
         $formatData[] = array('h:mm a', $dateTime, '12:00 AM');
         $formatData[] = array('yyyyy.MMMM.dd hh:mm aaa', $dateTime, '01970.January.01 12:00 AM');
 
-        $formatData[] = array("yyyy.MM.dd 'at' HH:mm:ss zzz", $dateTime, '1970.01.01 at 00:00:00 UTC');
-        $formatData[] = array('K:mm a, z', $dateTime, '0:00 AM, UTC');
+        if (IcuVersion::compare(Intl::getIcuVersion(), '59.1', '>=', 1)) {
+            // Before ICU 59.1 GMT was used instead of UTC
+            $formatData[] = array("yyyy.MM.dd 'at' HH:mm:ss zzz", 0, '1970.01.01 at 00:00:00 UTC');
+            $formatData[] = array('K:mm a, z', 0, '0:00 AM, UTC');
+            $formatData[] = array("yyyy.MM.dd 'at' HH:mm:ss zzz", $dateTime, '1970.01.01 at 00:00:00 UTC');
+            $formatData[] = array('K:mm a, z', $dateTime, '0:00 AM, UTC');
+        }
 
         return $formatData;
     }
@@ -932,7 +935,9 @@ abstract class AbstractIntlDateFormatterTest extends TestCase
         $position = null;
         $formatter = $this->getDefaultDateFormatter('y');
         $this->assertSame(0, $formatter->parse('1970', $position));
-        $this->assertNull($position);
+        // Since $position is not supported by the Symfony implementation, the following won't work.
+        // The intl implementation works this way since 60.2.
+        // $this->assertSame(4, $position);
     }
 
     public function testSetPattern()

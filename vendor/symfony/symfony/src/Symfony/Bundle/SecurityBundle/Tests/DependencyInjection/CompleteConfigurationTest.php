@@ -44,12 +44,8 @@ abstract class CompleteConfigurationTest extends TestCase
 
         $expectedProviders = array(
             'security.user.provider.concrete.default',
-            'security.user.provider.concrete.default_foo',
             'security.user.provider.concrete.digest',
-            'security.user.provider.concrete.digest_foo',
             'security.user.provider.concrete.basic',
-            'security.user.provider.concrete.basic_foo',
-            'security.user.provider.concrete.basic_bar',
             'security.user.provider.concrete.service',
             'security.user.provider.concrete.chain',
         );
@@ -105,6 +101,13 @@ abstract class CompleteConfigurationTest extends TestCase
                 'security.authentication.listener.anonymous.with_user_checker',
                 'security.access_listener',
             ),
+            array(
+                'security.channel_listener',
+                'security.context_listener.2',
+                'security.authentication.listener.simple_form.simple_auth',
+                'security.authentication.listener.anonymous.simple_auth',
+                'security.access_listener',
+            ),
         ), $listeners);
     }
 
@@ -150,7 +153,7 @@ abstract class CompleteConfigurationTest extends TestCase
             list($matcherId, $attributes, $channel) = $rule;
             $requestMatcher = $container->getDefinition($matcherId);
 
-            $this->assertFalse(isset($matcherIds[$matcherId]));
+            $this->assertArrayNotHasKey($matcherId, $matcherIds);
             $matcherIds[$matcherId] = true;
 
             $i = count($matcherIds);

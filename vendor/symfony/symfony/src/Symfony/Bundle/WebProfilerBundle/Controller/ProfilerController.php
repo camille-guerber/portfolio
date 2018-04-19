@@ -122,7 +122,7 @@ class ProfilerController
      */
     public function purgeAction()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 2.8 and will be removed in 3.0.', E_USER_DEPRECATED);
+        @trigger_error('The '.__METHOD__.' method is deprecated since Symfony 2.8 and will be removed in 3.0.', E_USER_DEPRECATED);
 
         if (null === $this->profiler) {
             throw new NotFoundHttpException('The profiler must be enabled.');
@@ -217,8 +217,6 @@ class ProfilerController
     /**
      * Renders the profiler search bar.
      *
-     * @param Request $request The current HTTP Request
-     *
      * @return Response A Response instance
      *
      * @throws NotFoundHttpException
@@ -309,8 +307,6 @@ class ProfilerController
 
     /**
      * Narrows the search bar.
-     *
-     * @param Request $request The current HTTP Request
      *
      * @return Response A Response instance
      *
