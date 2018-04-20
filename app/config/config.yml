@@ -71,12 +71,12 @@ swiftmailer:
 sonata_seo:
     encoding:    UTF-8
     page:
-        title:    Camille Guerber Développeur
+        title:    Camille Guerber, développeur, programmeur, cours informatique, tutoriels, web, database, backend
         default:    sonata.seo.page.default
         metas:
             name:
                 keywords:    camille guerber, developpeur, developpeur web,  developpeur application, php, html, css, symfony, mvc, pdo, sql, javascript, js, jquerry, nodejs, angularjs, wordpress, bi
-                description:    Camille Guerber, developpeur informatique polyvalent
+                description:    Camille Guerber, developpeur informatique, big data, sql, php, programmeur
                 robots:    index, follow
 
             property:

@@ -19,17 +19,21 @@ pre {
 
 /* H STYLE */
 .h-style-1 {
-    text-align: center;
     text-transform: uppercase;
     margin-bottom: 20px;
     font-weight: bold;
     border: 1px solid #000;
-    padding: 5px;
 }
 
 .h-style-2 {
     color: red;
     text-transform: uppercase;
+}
+
+.h-style-3 {
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
 
 /* A STYLE */
@@ -66,12 +70,18 @@ pre {
 .hr-style-1:before { 
 }
 
+/* LAYOUT BASE */
+
+.main-left {
+}
+
+.main-right {
+}
+
 /* INDEX */
 
 .index {
     font-size: 150%;
-    padding-left: 15%;
-    padding-right: 15%;
     line-height: 180%;
 }
 
@@ -99,6 +109,7 @@ pre {
 }
 
 .affichage-skill li:hover {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     background-color: rgba(168, 177, 186, 0.53);
     color: #fff;
     cursor: cell;
@@ -145,6 +156,7 @@ pre {
 }
 
 .affichage-education li:hover {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     background-color: rgba(168, 177, 186, 0.53);
     color: #fff;
     cursor: cell;
@@ -179,6 +191,7 @@ pre {
 }
 
 .affichage-article li:hover {
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
     background-color: rgba(168, 177, 186, 0.53);
     color: #fff;
     cursor: cell;
@@ -193,7 +206,8 @@ pre {
 
 /* AFFICHAGE DERNIERS ARTICLES */
 .last_articles {
-    text-align: center;
+    background-color: #5286957d;
+    padding-left: 5%;
     padding-bottom: 5%;
     border-left: 3px solid transparent;
 }
@@ -209,7 +223,7 @@ pre {
 }
 
 .last_articles img {
-    width: 25%;
+    width: 50%;
     height: auto;
 }
 
@@ -234,7 +248,7 @@ pre {
 
 .article-date {
     font-weight: bold;
-    text-align: center;
+    color: #c9302c;
 }
 
 .article-content {

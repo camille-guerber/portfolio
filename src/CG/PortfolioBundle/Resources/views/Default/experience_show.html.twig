@@ -6,21 +6,21 @@
 
 {% block body %}
     <div class="experience-show">
-        <h3 class="h-style-1">{{ experience.company }}</h3>
+        <h3 class="h-style-3">{{ experience.company }}</h3>
         <img src="{{ experience.companyLogo }}">
-        <h3 class="h-style-1">Début - Fin</h3>
+        <h3 class="h-style-3">Début - Fin</h3>
         <p>
             {{ experience.startDate|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }} au {{ experience.endDate|localizeddate('none', 'none', 'fr', null, 'd MMMM Y') }}
         </p>
-        <h3 class="h-style-1">Type de contrat</h3>
+        <h3 class="h-style-3">Type de contrat</h3>
         <p>
             {{ experience.contractType }}
         </p>
-        <h3 class="h-style-1">Missions</h3>
+        <h3 class="h-style-3">Missions</h3>
         <p>
             {{ experience.mission|raw }}
         </p>
-        <h3 class="h-style-1">Skills</h3>
+        <h3 class="h-style-3">Skills</h3>
         {% for skill in experience.skills %}
             <p class=skill-tag>
                 {{ skill.name }}

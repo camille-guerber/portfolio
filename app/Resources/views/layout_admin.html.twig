@@ -1,4 +1,4 @@
-{# app/Ressources/views/layout.html.twig #}
+{# app/Ressources/views/layout_admin.html.twig #}
 
 <!DOCTYPE html>
 <html {{ sonata_seo_html_attributes() }}>
@@ -74,14 +74,8 @@
             {% endfor %}
         {% endblock %}
         <div class="row">
-            <div class="col-md-7 col-md-offset-1 main-left">
+            <div class="col-md-10 col-md-offset-1 main-left">
                 {% block body %}
-                {% endblock %}
-            </div>
-            <div class="col-md-3  hidden-sm hidden-xs main-right">
-                {% block last_articles %}
-                    <h3 class="h-style-3">Derniers articles</h3>
-                    {{ render(controller('CGPortfolioBundle:Default:lastArticles')) }}
                 {% endblock %}
             </div>
         </div>          

@@ -7,9 +7,9 @@
 {% block body %}
    <!-- Compétences -->
     <div class="affichage-skill">
-        <h3 class="h-style-1">Mes compétences</h3>
+        <h3 class="h-style-3">Mes compétences</h3>
         <ul class="affichage-skill-list">
-        {% for skill in skills %}                
+        {% for skill in skills %}              
             {% if not skill.isSoftware %}
                 <a class="a-style-1" href="{{ path('cg_portfolio_skill_show', {'id': skill.id }) }}">
                     <li>
@@ -23,7 +23,7 @@
     </div>
     <!-- Logiciels --> 
     <div class="affichage-skill">
-        <h3 class="h-style-1">Mes outils de travail</h3>
+        <h3 class="h-style-3">Mes outils de travail</h3>
         <ul class="affichage-skill-list">
         {% for skill in skills %}
             {% if skill.isSoftware %}
@@ -39,12 +39,12 @@
     </div>
     <!-- Expériences -->        
     <div class="affichage-skill">
-        <h3 class="h-style-1">Expériences professionnelles</h3>
+        <h3 class="h-style-3">Expériences professionnelles</h3>
         <ul class="affichage-skill-list">
         {% for experience in experiences%}
             <a class="a-style-1" href="{{ path('cg_portfolio_experience_show', {'id': experience.id }) }}">
                 <li>
-                    <p>{{ experience.company }}</p>
+                    <p>{{ experience.company|upper }}</p>
                     <p>{{ experience.contractType }}</p>
                     <img src="{{ experience.companyLogo }}"></img>
                 </li>

@@ -6,17 +6,17 @@
 
 {% block body %}
     <div class="skill-show">
-        <h3 class="h-style-1">{{ education.school }}</h3>
+        <h3 class="h-style-3">{{ education.school }}</h3>
         <img src="{{ education.logoSrc }}">
-        <h3 class="h-style-1">Pays - Ville</h3>
+        <h3 class="h-style-3">Pays - Ville</h3>
         <p>
             {{ education.country }} - {{ education.city }}
         </p>
-        <h3 class="h-style-1">Niveau</h3>
+        <h3 class="h-style-3">Niveau</h3>
         <p>
             Bac + {{ education.degree }}    
         </p>
-        <h3 class="h-style-1">A propos</h3>
+        <h3 class="h-style-3">A propos</h3>
         <p>
             {{ education.content|raw }}
         </p>
